@@ -5,14 +5,11 @@ class ZebrasController < ApplicationController
 	end
 
 	def show
-		@zebra = Zebra.new
+		@zebra = Zebra.find(params[:id])
 	end
 
 	def new
 		@zebra = Zebra.new
-	end
-
-	def edit
 	end
 
 	def create
@@ -28,8 +25,16 @@ class ZebrasController < ApplicationController
       end
     end
   end
+  	def edit
+	@zebra = Zebra.find(params[:id])
+	end
 
-	def zebra_params
-      params.require(:zebra).permit(:name, :age)
-    end
+	def update
+		@zebra = Zebra.find(params[:id])
+		if @zebra.update_attributes(params[:zebra])
+			redirect_to @zebra
+		else
+			render "edit"
+		end
+	end
 end
