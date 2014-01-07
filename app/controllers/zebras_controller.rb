@@ -17,7 +17,7 @@ class ZebrasController < ApplicationController
 
 		 respond_to do |format|
       if @zebra.save
-        format.html { redirect_to @zebra, notice: 'Post was successfully created.' }
+        format.html { redirect_to @badzebra, notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @zebra }
       else
         format.html { render action: 'new' }
@@ -25,6 +25,7 @@ class ZebrasController < ApplicationController
       end
     end
   end
+  	
   	def edit
 	@zebra = Zebra.find(params[:id])
 	end
@@ -32,7 +33,7 @@ class ZebrasController < ApplicationController
 	def update
 		@zebra = Zebra.find(params[:id])
 		if @zebra.update_attributes(params[:zebra])
-			redirect_to @zebra
+			redirect_to @badzebra
 		else
 			render "edit"
 		end
