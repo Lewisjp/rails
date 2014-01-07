@@ -9,3 +9,9 @@
   <strong>Age:</strong>
   <%= @zebra.age %>
 </p>
+
+<p> 
+  <%= link_to 'Edit', "/zebras/#{@zebra.id}/edit" %> 
+  <%= link_to 'Back', zebras_path %>
+  <%= button_to 'Destroy', @zebra, :method => :delete %>
+</p>

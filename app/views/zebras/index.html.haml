@@ -1,8 +1,11 @@
 %h1 ZEBRAS!!!!
 
--@zebras.each do |zebra|
+- @zebras.each do |zebra|
   = zebra.name
   = zebra.age
   %br
-
-=link_to 'New Zebra', new_zebra_path
+  = link_to 'Show', "/zebras/#{zebra.id}"
+  = link_to 'Edit', "/zebras/#{zebra.id}/edit" 
+  = button_to 'Destroy', zebra, :method => :delete
+%br
+= link_to 'New Zebra', new_zebra_path
